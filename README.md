@@ -12,7 +12,7 @@ To address these challenges, we present two key contributions:
 
 We anticipate that our benchmark and findings will aid the research community in designing more effective algorithms for discovering high-activity AMPs. 
 
-![main](https://github.com/EricwanAR/AMPRecognitionBenchmark/blob/main/pics/gtkprintH5NN62)
+![main](https://github.com/EricwanAR/AMPRecognitionBenchmark/blob/main/pics/gtkprintH5NN62.svg)
 
 ## DRAMPAtlas 1.0 Dataset
 [Harvard Dataverse](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi%3A10.7910%2FDVN%2FE9A88D)(wet-lab data not included for now, reveal after publication)

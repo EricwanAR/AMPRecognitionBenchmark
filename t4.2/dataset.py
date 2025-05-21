@@ -194,18 +194,18 @@ def calculate_property_pdb(pdb_file):
 class MDataset(Dataset):
     def __init__(self, threshold=32, mode='train', max_length=50, pdb_src='af', data_ver='0920'):
         self.num_classes = 6
-        exclude_list = pd.read_csv('metadata/data_simi.csv', encoding="unicode_escape")['Seq'].str.upper().str.strip().tolist()
+        exclude_list = pd.read_csv('../metadata/data_simi.csv', encoding="unicode_escape")['Seq'].str.upper().str.strip().tolist()
         exclude_filter = False
 
         p = PDBParser(QUIET=True)
 
         if mode == 'train':
-            all_data = pd.read_csv(f'metadata/data_{data_ver}_i.csv', encoding="unicode_escape").values
+            all_data = pd.read_csv(f'../metadata/data_{data_ver}_i.csv', encoding="unicode_escape").values
             exclude_filter = True
         elif mode == 'qlx':
-            all_data = pd.read_csv('metadata/data_qlx.csv', encoding="unicode_escape").values
+            all_data = pd.read_csv('../metadata/data_qlx.csv', encoding="unicode_escape").values
         elif mode == 'saap':
-            all_data = pd.read_csv('metadata/data_saap.csv', encoding="unicode_escape").values
+            all_data = pd.read_csv('../metadata/data_saap.csv', encoding="unicode_escape").values
         else:
             raise NotImplementedError
         idx_list, seq_list, labels = all_data[:, 0], all_data[:, 1], np.concatenate((all_data[:, 4:9], all_data[:, 10:11]), axis=1)
@@ -228,9 +228,9 @@ class MDataset(Dataset):
         
         read_pdb_flag = True
         if pdb_src == 'af':
-            pdb_root = './pdb/pdb_af/' 
+            pdb_root = '../pdb/pdb_af/' 
         elif pdb_src == 'hf':
-            pdb_root = './pdb/pdb_dbassp/'
+            pdb_root = '../pdb/pdb_dbassp/'
         elif pdb_src == 'no':
             read_pdb_flag = False
         else:

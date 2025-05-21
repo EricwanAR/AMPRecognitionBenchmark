@@ -16,3 +16,33 @@ We anticipate that our benchmark and findings will aid the research community in
 
 ## DRAMPAtlas 1.0 Dataset
 [Harvard Dataverse](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi%3A10.7910%2FDVN%2FE9A88D)(wet-lab data not included for now, reveal after publication)
+
+## Instruction
+### Download the code
+```bash
+git clone https://github.com/EricwanAR/AMPRecognitionBenchmark.git
+cd AMPRecognitionBenchmark
+```
+
+### Dataset Preparation
+1. Put the Downloaded `dataverse_files.zip` in the root directory of this project `AMPRecognitionBenchmark/`.
+2. Run `bash dataproc.sh` in terminal
+3. Check if there are 2 new folders `metadata/` and `pdb/`
+```bash
+metadata/
+├── data_simi.csv
+├── data_0920_i.csv
+└── ...
+
+pdb/
+├── pdb_af/ #AlphaFold Predicts
+│   └── (pdb files ...)
+└── pdb_dbassp/ #HelixFold Predicts
+    └── (pdb files ...)
+```
+
+### Training and Inferencing
+1. `cd` to any unit folder, eg `cd t3.1` or `cd voxabl`
+2. `python main.py [args]`, full arguments can be found in `main.py`, refer to `runthro.sh` for experiments in our paper.
+3. Checkpoints will be saved in `run/`
+4. For inferencing, simply replace `main.py` with `infer.py`, eg `python infer.py [training args]`

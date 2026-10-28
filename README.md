@@ -1,6 +1,6 @@
 # AMPRecognitionBenchmark
 
-The official code for the paper "A Benchmark for Antimicrobial Peptide Recognition Based on Structure and Sequence Representation"
+The official code for the paper "Benchmarking Antimicrobial Peptide Recognition with Sequence and Structure Representation"
 
 Antimicrobial peptides (AMPs) serve as potent therapeutic agents against drug-resistant (DR) microbes; however, their clinical application is constrained by limitations in activity. Recently, machine learning has shown significant promise in recognizing high-activity AMPs. Nevertheless, these activity datasets about AMPs are aggregated from thousands of publications, which employ varying wet-lab experimental setups and focus on only one or a few types of DR bacteria. This heterogeneity restricts the advancement of AI methods for fair evaluation of AMP recognition. Additionally, while AlphaFold has revolutionized drug discovery through accurate protein structure predictions, the integration of these predicted structures into AMP discovery remains unexplored.
 

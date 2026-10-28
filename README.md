@@ -15,19 +15,24 @@ We anticipate that our benchmark and findings will aid the research community in
 ![main](https://github.com/EricwanAR/AMPRecognitionBenchmark/blob/main/pics/benchmark.png)
 
 ## DRAMPAtlas 1.0 Dataset
-[Harvard Dataverse](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi%3A10.7910%2FDVN%2FE9A88D)(wet-lab data not included for now, reveal after publication)
+The full atlas is on the [Harvard Dataverse](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi%3A10.7910%2FDVN%2FE9A88D). The wet-lab test set is not in that deposit yet and will be released after publication.
 
-## Instruction
-### Download the code
-```bash
-git clone https://github.com/EricwanAR/AMPRecognitionBenchmark.git
-cd AMPRecognitionBenchmark
-```
+This repository includes only a small sample, so the loaders and released checkpoints can be inspected without the full atlas:
 
-### Dataset Preparation
-1. Put the Downloaded `dataverse_files.zip` in the root directory of this project `AMPRecognitionBenchmark/`.
-2. Run `bash dataproc.sh` in terminal
-3. Check if there are 2 new folders `metadata/` and `pdb/`
+- `metadata/data_0920_i.csv`: 8 training peptides
+- `metadata/data_qlx.csv`: 4 wet-lab test peptides
+- `metadata/data_saap.csv`: 4 SAAP peptides
+- `metadata/data_simi.csv`: 4 sequences from the similarity-exclusion list
+- `metadata/features.txt`: amino-acid features used by the graph models
+- `pdb/pdb_af/` and `pdb/pdb_dbassp/`: the AlphaFold and HelixFold structure for each sample peptide
+
+These rows are examples. They are not the training split used in the paper.
+
+### Full dataset
+1. Put the downloaded `dataverse_files.zip` in `AMPRecognitionBenchmark/`.
+2. Run `bash dataproc.sh`.
+3. This replaces the sample `metadata/` and `pdb/` folders with the full tables and structures:
+
 ```bash
 metadata/
 ├── data_simi.csv
@@ -35,14 +40,24 @@ metadata/
 └── ...
 
 pdb/
-├── pdb_af/ #AlphaFold Predicts
+├── pdb_af/ #AlphaFold predictions
 │   └── (pdb files ...)
-└── pdb_dbassp/ #HelixFold Predicts
+└── pdb_dbassp/ #HelixFold predictions
     └── (pdb files ...)
 ```
 
-### Training and Inferencing
-1. `cd` to any unit folder, eg `cd t3.1` or `cd voxabl`
-2. `python main.py [args]`, full arguments can be found in `main.py`, refer to `runthro.sh` for experiments in our paper.
-3. Checkpoints will be saved in `run/`
-4. For inferencing, simply replace `main.py` with `infer.py`, eg `python infer.py [training args]`
+Graph models also read `metadata/features.txt` from the unit directory (`t3.2.2`, `t5g`, `t7g`, `graphabl`). That file is already included.
+
+## Instruction
+### Download
+```bash
+git clone https://github.com/EricwanAR/AMPRecognitionBenchmark.git
+cd AMPRecognitionBenchmark
+```
+
+### Training and inference
+1. `cd` to any unit folder, for example `cd t3.1` or `cd voxabl`.
+2. `python main.py [args]`. Arguments are in `main.py`. `runthro.sh` lists the settings used in the paper.
+3. Checkpoints are written to `run/`. `model_k.pth` is the epoch with the best validation score for that fold. The `qlx` block in `result.txt` is selected separately and is not the score of that checkpoint.
+4. Released checkpoints are already in each unit's `run/` directory, together with `config.json` and `result.txt`.
+5. For inference, use `infer.py` with the same arguments, for example `python infer.py [training args]`. The sample metadata and PDB files are enough to check that a checkpoint loads. Reported numbers use the full atlas.

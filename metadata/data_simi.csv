@@ -1,0 +1,5 @@
+ID,Seq,DR species num,All species num,Enterococcus faecalis,Pseudomonas aeruginosa,Staphylococcus aureus,Acinetobacter baumannii,enterobacteriaceae,Helicobacter pylori,Salmonella species,Campylobacter,Neisseria gonorrhoeae,Streptococcus pneumoniae,Haemophilus influenzae,Shigella species,toxin_data wild,Cardiotoxin,Enterotoxin,Neurotoxin,Hemostasis impairing toxin,Myotoxin,Other mechanism,Lipid Bilayer / Membrane Protein,Cytoplasmic Protein,DNA / RNA,Biofilm,Gram+,Gram-
+77,KLLLKWLLKLLK,0,4,64.0,64.0,64.0,64.0,64.0,-1.0,256.0,-1.0,-1.0,-1.0,-1,-1.0,0,0,0,0,0,0,0,1,0,0,0,1,1
+105,SWFKTKSK,0,1,256.0,256.0,256.0,256.0,256.0,-1.0,256.0,-1.0,-1.0,-1.0,-1,-1.0,0,0,0,0,0,0,0,1,0,0,0,1,0
+118,GIGKFLHSAKKFGKAWVGEIMNS,0,3,256.0,64.0,64.0,256.0,64.0,-1.0,64.0,-1.0,-1.0,-1.0,-1,-1.0,0,0,0,0,1,0,0,1,0,0,0,1,1
+129,GLRKALRKFRNKIKEALKKI,0,4,256.0,64.0,256.0,256.0,64.0,-1.0,64.0,-1.0,-1.0,-1.0,-1,-1.0,0,0,0,0,0,0,0,1,0,0,0,1,1
